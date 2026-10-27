@@ -13,10 +13,93 @@
   color: #94a3b8;
 }
 
+/* ---- Resumen ---- */
+.fw-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.fw-stat {
+  background: #1f2937;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.fw-stat span {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.fw-stat strong {
+  display: block;
+  font-size: 1.4rem;
+  margin-top: 4px;
+}
+
+.fw-stat.allow strong { color: #34d399; }
+.fw-stat.deny strong { color: #f87171; }
+.fw-stat.warn strong { color: #fbbf24; }
+
+/* ---- Búsqueda ---- */
+.fw-toolbar input {
+  background: #0f172a;
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 8px;
+  padding: 9px 10px;
+  font-size: 0.9rem;
+}
+
+.fw-toolbar input:focus,
+.fw-chip:focus-visible,
+.rule-action:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 1px;
+}
+
+/* ---- Filtros ---- */
+.fw-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.fw-toolbar input {
+  flex: 1;
+  min-width: 180px;
+}
+
+.fw-filters {
+  display: flex;
+  gap: 6px;
+}
+
+.fw-chip {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.fw-chip.active {
+  background: rgba(56, 189, 248, 0.14);
+  border-color: rgba(56, 189, 248, 0.5);
+  color: #dff7ff;
+}
+
+/* ---- Lista de reglas ---- */
 .rules-list {
   list-style: none;
   padding: 0;
-  margin: 20px 0 0;
+  margin: 16px 0 0;
   display: grid;
   gap: 12px;
 }
@@ -43,13 +126,27 @@
 
 .rule-desc {
   flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.rule-shadow {
+  margin-left: 8px;
+  font-style: normal;
+  font-size: 0.7rem;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.12);
+  border-radius: 999px;
+  padding: 2px 8px;
 }
 
 .rule-action {
   font-weight: bold;
-  font-size: 0.8rem;
   border-radius: 999px;
   padding: 5px 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: transparent;
+  font-size: 0.8rem;
 }
 
 .rule-action.allow {
@@ -62,8 +159,15 @@
   background: rgba(248, 113, 113, 0.12);
 }
 
+.rule-action:hover { border-color: currentColor; }
+
 .rules-list li.fw-empty {
   justify-content: center;
   color: #94a3b8;
   border-style: dashed;
+}
+
+@media (max-width: 700px) {
+  .rules-list li { flex-wrap: wrap; }
+  .rule-desc { flex-basis: 100%; order: 1; }
 }
