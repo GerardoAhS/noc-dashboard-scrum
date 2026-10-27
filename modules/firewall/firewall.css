@@ -27,19 +27,43 @@
   border-radius: 10px;
   padding: 12px 14px;
   display: flex;
-  justify-content: space-between;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
+}
+
+.rule { border-left: 4px solid transparent; }
+.rule.allow { border-left-color: #34d399; }
+.rule.deny { border-left-color: #f87171; }
+
+.rule-order {
+  color: #64748b;
+  font-size: 0.8rem;
+  min-width: 28px;
+}
+
+.rule-desc {
+  flex: 1;
 }
 
 .rule-action {
   font-weight: bold;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  padding: 5px 12px;
 }
 
 .rule-action.allow {
   color: #34d399;
+  background: rgba(52, 211, 153, 0.12);
 }
 
 .rule-action.deny {
   color: #f87171;
+  background: rgba(248, 113, 113, 0.12);
+}
+
+.rules-list li.fw-empty {
+  justify-content: center;
+  color: #94a3b8;
+  border-style: dashed;
 }
