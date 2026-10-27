@@ -7,6 +7,30 @@
 
   <div id="fw-stats" class="fw-stats"></div>
 
+  <form id="fw-form" class="fw-form" novalidate>
+    <label>Acción
+      <select id="fw-action">
+        <option value="ALLOW">ALLOW</option>
+        <option value="DENY">DENY</option>
+      </select>
+    </label>
+    <label>Protocolo
+      <select id="fw-protocol">
+        <option>TCP</option>
+        <option>UDP</option>
+        <option>ICMP</option>
+      </select>
+    </label>
+    <label>Puerto
+      <input id="fw-port" type="text" placeholder="1-65535 o *" autocomplete="off" />
+    </label>
+    <label>Origen
+      <input id="fw-source" type="text" placeholder="Any o 10.0.0.0/24" autocomplete="off" />
+    </label>
+    <button type="submit" class="fw-btn primary">Agregar regla</button>
+  </form>
+  <p id="fw-msg" class="fw-msg" role="status"></p>
+
   <div class="fw-toolbar">
     <div class="fw-filters" role="group" aria-label="Filtrar por acción">
       <button type="button" class="fw-chip active" data-filter="ALL">Todas</button>
@@ -14,7 +38,27 @@
       <button type="button" class="fw-chip" data-filter="DENY">DENY</button>
     </div>
     <input id="fw-search" type="search" placeholder="Buscar protocolo, puerto u origen" autocomplete="off" />
+    <button type="button" id="fw-reset" class="fw-btn">Restablecer</button>
   </div>
 
   <ul id="firewall-rules" class="rules-list"></ul>
+
+  <h3 class="fw-subtitle">Probar un paquete</h3>
+  <form id="fw-test" class="fw-form fw-test" novalidate>
+    <label>Protocolo
+      <select id="fw-t-protocol">
+        <option>TCP</option>
+        <option>UDP</option>
+        <option>ICMP</option>
+      </select>
+    </label>
+    <label>Puerto
+      <input id="fw-t-port" type="text" placeholder="443" autocomplete="off" />
+    </label>
+    <label>Origen
+      <input id="fw-t-source" type="text" value="Any" autocomplete="off" />
+    </label>
+    <button type="submit" class="fw-btn primary">Probar</button>
+  </form>
+  <div id="fw-t-result" class="fw-result" role="status"></div>
 </section>

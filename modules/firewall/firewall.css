@@ -43,7 +43,23 @@
 .fw-stat.deny strong { color: #f87171; }
 .fw-stat.warn strong { color: #fbbf24; }
 
-/* ---- Búsqueda ---- */
+/* ---- Formularios ---- */
+.fw-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.fw-form label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.fw-form input,
+.fw-form select,
 .fw-toolbar input {
   background: #0f172a;
   color: #e5e7eb;
@@ -53,12 +69,48 @@
   font-size: 0.9rem;
 }
 
+.fw-form input:disabled {
+  opacity: 0.55;
+}
+
+.fw-form input:focus,
+.fw-form select:focus,
 .fw-toolbar input:focus,
+.fw-btn:focus-visible,
 .fw-chip:focus-visible,
-.rule-action:focus-visible {
+.rule-action:focus-visible,
+.fw-icon:focus-visible {
   outline: 2px solid #38bdf8;
   outline-offset: 1px;
 }
+
+.fw-btn {
+  background: #1f2937;
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 8px;
+  padding: 9px 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.fw-btn:hover { border-color: #38bdf8; }
+
+.fw-btn.primary {
+  background: #0ea5e9;
+  border-color: #0ea5e9;
+  color: #04121c;
+  font-weight: bold;
+}
+
+.fw-msg {
+  min-height: 1.2em;
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+}
+
+.fw-msg.ok { color: #34d399; }
+.fw-msg.error { color: #f87171; }
 
 /* ---- Filtros ---- */
 .fw-toolbar {
@@ -161,11 +213,47 @@
 
 .rule-action:hover { border-color: currentColor; }
 
+.rule-tools {
+  display: flex;
+  gap: 4px;
+}
+
+.fw-icon {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 6px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.fw-icon:hover:not(:disabled) { color: #e5e7eb; border-color: #38bdf8; }
+.fw-icon.danger:hover:not(:disabled) { color: #f87171; border-color: #f87171; }
+.fw-icon:disabled { opacity: 0.35; cursor: not-allowed; }
+
 .rules-list li.fw-empty {
   justify-content: center;
   color: #94a3b8;
   border-style: dashed;
 }
+
+/* ---- Probador de paquetes ---- */
+.fw-subtitle {
+  margin: 28px 0 12px;
+  font-size: 1rem;
+}
+
+.fw-result {
+  margin-top: 12px;
+  min-height: 1.2em;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.fw-result.allow { color: #34d399; }
+.fw-result.deny,
+.fw-result.error { color: #f87171; }
 
 @media (max-width: 700px) {
   .rules-list li { flex-wrap: wrap; }
